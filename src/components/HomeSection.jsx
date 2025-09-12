@@ -11,7 +11,7 @@ export const HomeSection = () => {
         <div className="container max-w-4xl mx-auto text-center z-10">
           <div className="space-y-9">
 
-            <div className="text-5xl font-bold font-mono tracking-tight flex flex-col md:flex-row items-center justify-center gap-2 whitespace-nowrap">
+            <div className="text-3xl sm:text-5xl font-bold font-mono tracking-tight flex flex-col md:flex-row items-center justify-center gap-2 whitespace-nowrap">
               <div>
                 <span className="opacity-0 animate-fade-in"> 
                     <Typewriter options={{
