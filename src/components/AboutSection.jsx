@@ -11,31 +11,35 @@ export const AboutSection = () => {
                     About <span className="text-primary">Me</span>
                 </h2>
 
-                <h3 className={cn(
-                    "text-xl md:text-2xl font-bold flex items-center justify-center gap-2",
+                <div className={cn(
+                    "text-2xl font-bold flex flex-col md:flex-row items-center justify-center gap-2",
                     "text-muted-foreground mx-auto opacity-0 animate-fade-in-delay-3 pb-6"
                 )}> 
-                    <span className={cn(
-                        "font-mono"
-                    )}>
-                    I build 
-                    </span>
-                    <span className="text-cyan-300/90 font-mono">
-                    <Typewriter options={{
-                        strings: ["Interactive UI", 
-                                  "Responsive Layouts",
-                                  "3D Models",
-                                  "Simple Games",
-                                  "AI Systems/Models",
-                                  "Algorithms"],
-                        autoStart: true,
-                        loop: true,
-                        delay: 75,
-                        deleteSpeed: 50,
-                        pauseFor: 1000
-                    }}/>
-                    </span>
-                </h3>
+                    <div>
+                        <span className={cn(
+                            "font-mono"
+                        )}>
+                            I build 
+                        </span>
+                    </div>
+                    <div>
+                        <span className="text-cyan-300/90 font-mono">
+                        <Typewriter options={{
+                            strings: ["Interactive UI", 
+                                    "Responsive Layouts",
+                                    "3D Models",
+                                    "Simple Games",
+                                    "AI Systems/Models",
+                                    "Algorithms"],
+                            autoStart: true,
+                            loop: true,
+                            delay: 75,
+                            deleteSpeed: 50,
+                            pauseFor: 1000
+                        }}/>
+                        </span>
+                    </div>
+                </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                     <div className="space-y-6">
