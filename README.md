@@ -1,6 +1,6 @@
 # Portfolio Website
 
-Welcome to my portfolio! 🚀  
+Welcome to my (still in progress) portfolio! 🚀  
 
 This is where I showcase my projects, skills, and experiments in web development.  
 
