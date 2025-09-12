@@ -2,30 +2,30 @@ import { useState } from "react";
 import { cn } from "@/lib/utils"
 
 const skills = [
-    {name: "HTML/CSS", level: 95, category: "Web Development"},
-    {name: "React", level: 95, category: "Web Development"},
-    {name: "Tailwind CSS", level: 95, category: "Web Development"},
-    {name: "Three.js", level: 95, category: "Web Development"},
-    {name: "React Three Fiber", level: 95, category: "Web Development"},
+    {name: "HTML/CSS", level: 90, category: "Web Development"},
+    {name: "React", level: 80, category: "Web Development"},
+    {name: "Tailwind CSS", level: 80, category: "Web Development"},
+    {name: "Three.js", level: 30, category: "Web Development"},
+    {name: "React Three Fiber", level: 30, category: "Web Development"},
 
     {name: "Python", level: 95, category: "Language"},
-    {name: "TypeScript", level: 95, category: "Language"},
-    {name: "JavaScript", level: 95, category: "Language"},
-    {name: "Java", level: 95, category: "Language"},
-    {name: "C++", level: 95, category: "Language"},
-    {name: "Bash", level: 95, category: "Language"},
-    {name: "SQL", level: 95, category: "Language"},
+    {name: "TypeScript", level: 80, category: "Language"},
+    {name: "JavaScript", level: 90, category: "Language"},
+    {name: "Java", level: 70, category: "Language"},
+    {name: "C++", level: 70, category: "Language"},
+    {name: "Bash", level: 85, category: "Language"},
+    {name: "SQL", level: 60, category: "Language"},
 
     {name: "Azure", level: 95, category: "Cloud and Infrastructure"},
-    {name: "AWS", level: 95, category: "Cloud and Infrastructure"},
+    {name: "AWS", level: 80, category: "Cloud and Infrastructure"},
     {name: "Terraform", level: 95, category: "Cloud and Infrastructure"},
 
-    {name: "Git", level: 95, category: "Tool"},
-    {name: "Docker", level: 95, category: "Tool"},
-    {name: "Vulkan", level: 95, category: "Tool"},
-    {name: "MuJoCo", level: 95, category: "Tool"},
-    {name: "PyTorch", level: 95, category: "Tool"},
-    {name: "OpenCV", level: 95, category: "Tool"},
+    {name: "Git", level: 85, category: "Tool"},
+    {name: "Docker", level: 70, category: "Tool"},
+    {name: "Vulkan", level: 40, category: "Tool"},
+    {name: "MuJoCo", level: 75, category: "Tool"},
+    {name: "PyTorch", level: 90, category: "Tool"},
+    {name: "OpenCV", level: 90, category: "Tool"},
 ];
 
 const categories = ["All", "Web Development", "Language", "Cloud and Infrastructure", "Tool"];

@@ -40,7 +40,7 @@ export const ProjectsSection = () => {
                 </h2>
 
                 <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-                    Here are some of projects I've built up over the years since I started getting into tech.
+                    Here are some of projects I've built up over the years since I started learning about tech.
                 </p>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

@@ -14,15 +14,24 @@ export const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-   
+
     useEffect(() => {
-      const handleScroll = () => {
-        setIsScrolled(window.screenY > 10);
-      };
-   
-      window.addEventListener("scroll", handleScroll);
-      return () => window.removeEventListener("scroll", handleScroll);
+        let ticking = false;
+        
+        const handleScroll = () => {
+          if (!ticking) {
+            requestAnimationFrame(() => {
+              setIsScrolled(window.scrollY > 10);
+              ticking = false;
+            });
+            ticking = true;
+          }
+        };
+    
+        window.addEventListener("scroll", handleScroll, { passive: true });
+        return () => window.removeEventListener("scroll", handleScroll);
     }, []);
+
    
     return (
       <nav className={cn(
@@ -32,14 +41,19 @@ export const Navbar = () => {
 
         <div className="container flex items-center justify-between">
 
-            <a className="text-xl font-bold text-primary flex items-center" href="#home"> 
+            <a className="text-xl font-bold text-primary flex items-center gap-4" href="#home"> 
+                <img 
+                    src="/dylan.png" 
+                    alt="Dylan's Profile Picture"
+                    className="w-10 h-10 rounded-full object-cover border-2 border-primary/20 hover:border-primary/40 transition-colors duration-300"
+                />
                 <span className="relative z-10">
                     <span className="text-glow text-foreground"> Dylan's </span> Portfolio
                 </span>    
             </a>
 
             {/* Desktop Nav */}
-            <div className="hidden md:flex space-x-8">
+            <div className="hidden md:flex space-x-11">
                 {navItems.map((item, key) => (
                     <a key={key} href={item.href} className="text-foreground/80 hover:text-primary transition-colors duration-300">
                         {item.name}
