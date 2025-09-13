@@ -19,18 +19,16 @@ export const AboutSection = () => {
                         <span className={cn(
                             "font-mono"
                         )}>
-                            I build 
+                            I enjoy building 
                         </span>
                     </div>
                     <div>
                         <span className="text-cyan-300/90 font-mono">
                         <Typewriter options={{
-                            strings: ["Interactive UI", 
-                                    "Responsive Layouts",
-                                    "3D Models",
-                                    "Simple Games",
-                                    "AI Systems/Models",
-                                    "Algorithms"],
+                            strings: ["Scalable Applications",
+                                      "Interactive UI", 
+                                      "Responsive Layouts",
+                                      "Intelligent Systems"],
                             autoStart: true,
                             loop: true,
                             delay: 75,
