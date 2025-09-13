@@ -10,7 +10,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route index element={<Home />}/>          {/*Route for main page*/}
-          <Route path="*" element={<NotFound/>}/>    {/*Route for 404 not found page on any other pages*/}
+          <Route path="/*" element={<NotFound/>}/>    {/*Route for 404 not found page on any other pages*/}
         </Routes>
       </BrowserRouter>
     </>
