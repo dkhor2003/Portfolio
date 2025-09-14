@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { cn } from "@/lib/utils"
+import { SkillCard } from "@/components/SkillCard";
 
 const skills = [
     {name: "HTML", level: 80, category: "Frontend", logo: "/logos/html.svg"},
@@ -61,28 +62,29 @@ export const SkillsSection = () => {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     {filteredSkills.map((skill, key) => (
-                        <div className="group card-hover perspective-1000">
-                            <div className="relative transition-transform duration-1000 preserve-3d group-hover:rotate-y-180 group-active:rotate-y-180">
-                                <div key={key} className="absolute inset-0 skill-card backface-hidden flex items-center justify-center">
-                                    <img src={skill.logo} alt={skill.name} className="w-16 h-16 object-contain"/>
-                                </div>
+                        <SkillCard key={key} skill={skill}/>
+                        // <div className="group card-hover perspective-1000">
+                        //     <div className="relative transition-transform duration-1000 preserve-3d group-hover:rotate-y-180">
+                        //         <div key={key} className="absolute inset-0 skill-card backface-hidden flex items-center justify-center">
+                        //             <img src={skill.logo} alt={skill.name} className="w-16 h-16 object-contain"/>
+                        //         </div>
 
-                                <div key={key} className="inset-0 skill-card rotate-y-180 backface-hidden">
-                                    <div className="text-left mb-4">
-                                        <h3 className="font-semibold text-lg">{skill.name}</h3>
-                                    </div>
-                                    <div className="w-full bg-secondary/50 h-2 rounded-full overflow-hidden">
-                                        <div 
-                                            className="bg-primary h-2 rounded-full origin-left animate-pulse-subtle"
-                                            style={{width: skill.level + "%"}}
-                                        />
-                                    </div>
-                                    <div className="text-right mt-1">
-                                        <span className="text-sm text-muted-foreground">{skill.level}%</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        //         <div key={key} className="inset-0 skill-card rotate-y-180 backface-hidden">
+                        //             <div className="text-left mb-4">
+                        //                 <h3 className="font-semibold text-lg">{skill.name}</h3>
+                        //             </div>
+                        //             <div className="w-full bg-secondary/50 h-2 rounded-full overflow-hidden">
+                        //                 <div 
+                        //                     className="bg-primary h-2 rounded-full origin-left animate-pulse-subtle"
+                        //                     style={{width: skill.level + "%"}}
+                        //                 />
+                        //             </div>
+                        //             <div className="text-right mt-1">
+                        //                 <span className="text-sm text-muted-foreground">{skill.level}%</span>
+                        //             </div>
+                        //         </div>
+                        //     </div>
+                        // </div>
                     ))}
                 </div>
             </div>
