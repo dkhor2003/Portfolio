@@ -23,7 +23,7 @@ export const AboutSection = () => {
                         </span>
                     </div>
                     <div>
-                        <span className="text-cyan-300/90 font-mono">
+                        <span className="text-cyan-300/90 font-mono text-xl sm:text-2xl">
                             <Typewriter options={{
                                 strings: ["Scalable Applications",
                                         "Interactive UI", 
