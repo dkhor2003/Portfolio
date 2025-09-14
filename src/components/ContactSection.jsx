@@ -36,66 +36,74 @@ export const ContactSection = () => {
                         <h3 className="text-2xl font-semibold mb-6"> Contact Information </h3>
 
                         <div className="space-y-6 justify-center">
-                            <div className="flex items-start space-x-4">
-                                <div className="p-3 rounded-full bg-primary/10">
-                                    <Mail className="h-6 w-6 text-primary"/>
-                                </div>
+                            <div className="gradient-border p-6 border-glow">
+                                <div className="flex items-start space-x-4">
+                                    <div className="p-3 rounded-full bg-primary/10">
+                                        <Mail className="h-6 w-6 text-primary"/>
+                                    </div>
 
-                                <div className="relative group">
-                                    <h4 className="font-medium"> Email </h4>
-                                    <a href="mailto:khordylan2003@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">
-                                        khordylan2003@gmail.com
-                                    </a>
+                                    <div className="relative text-left group">
+                                        <h4 className="font-medium neon-text"> Email </h4>
+                                        <a href="mailto:khordylan2003@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">
+                                            khordylan2003@gmail.com
+                                        </a>
 
-                                    <div className="absolute left-0 mt-2 w-48 p-2 bg-gray-800 text-white text-sm rounded opacity-0 transition-opacity duration-300 pointer-events-none group-hover:opacity-100 group-hover:z-50">
-                                        I'm always happy to hear from you—just keep your messages free of spammy vibes so they actually land in my inbox 😉.
+                                        <div className="absolute left-0 mt-2 w-48 p-4 bg-card text-foreground text-sm rounded opacity-0 border border-foreground transition-opacity duration-300 pointer-events-none group-hover:opacity-100 group-hover:z-50">
+                                            I'm always happy to hear from you—just keep your messages free of spammy vibes so they actually land in my inbox 😉.
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div className="flex items-start space-x-4">
-                                <div className="p-3 rounded-full bg-primary/10">
-                                    <Phone className="h-6 w-6 text-primary"/>
-                                </div>
+                            
+                            <div className="gradient-border p-6 border-glow">
+                                <div className="flex items-start space-x-4">
+                                    <div className="p-3 rounded-full bg-primary/10">
+                                        <Phone className="h-6 w-6 text-primary"/>
+                                    </div>
 
-                                <div className="relative group">
-                                    <h4 className="font-medium"> Phone </h4>
-                                    <a href="tel:+15157157665" className="text-muted-foreground hover:text-primary transition-colors">
-                                        +1 (515) 715-7665
-                                    </a>
+                                    <div className="relative group text-left">
+                                        <h4 className="font-medium neon-text"> Phone </h4>
+                                        <a href="tel:+15157157665" className="text-muted-foreground hover:text-primary transition-colors">
+                                            +1 (515) 715-7665
+                                        </a>
 
-                                    <div className="absolute left-0 mt-2 w-48 p-2 bg-gray-800 text-white text-sm rounded opacity-0 transition-opacity duration-300 pointer-events-none group-hover:opacity-100 group-hover:z-50">
-                                        I have a mild fear of mystery calls. Voicemail is safe. Leave me one, and I'll definitely reach back out if you're not shady 😏!
+                                        <div className="absolute left-0 mt-2 w-48 p-4 bg-card text-foreground text-sm rounded opacity-0 border border-foreground transition-opacity duration-300 pointer-events-none group-hover:opacity-100 group-hover:z-50">
+                                            I have a mild fear of mystery calls. Voicemail is safe. Leave me one, and I'll definitely reach back out if you're not shady 😏!
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div className="flex items-start space-x-4">
-                                <div className="p-3 rounded-full bg-primary/10">
-                                    <MapPin className="h-6 w-6 text-primary"/>
-                                </div>
+                            <div className="gradient-border p-6 border-glow">
+                                <div className="flex items-start space-x-4">
+                                    <div className="p-3 rounded-full bg-primary/10">
+                                        <MapPin className="h-6 w-6 text-primary"/>
+                                    </div>
 
-                                <div className="relative group">
-                                    <h4 className="font-medium"> Location </h4>
-                                    <a className="text-muted-foreground hover:text-primary transition-colors">
-                                        Grimes, IA, USA
-                                    </a>
+                                    <div className="relative group text-left">
+                                        <h4 className="font-medium neon-text"> Location </h4>
+                                        <a className="text-muted-foreground hover:text-primary transition-colors">
+                                            Grimes, IA, USA
+                                        </a>
 
-                                    <div className="absolute left-0 mt-2 w-48 p-2 bg-gray-800 text-white text-sm rounded opacity-0 transition-opacity duration-300 pointer-events-none group-hover:opacity-100 group-hover:z-50">
-                                        Exact address: top secret 😎. In the area? Let's hang out!
+                                        <div className="absolute left-0 mt-2 w-48 p-4 bg-card text-foreground text-sm rounded opacity-0 border border-foreground transition-opacity duration-300 pointer-events-none group-hover:opacity-100 group-hover:z-50">
+                                            Exact address: top secret 😎. In the area? Let's hang out!
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        
                         <div className="pt-8">
                             <h4 className="font-medium mb-4">Connect With Me</h4>
                             <div className="flex space-x-4 justify-center">
                                 <a href="https://www.linkedin.com/in/dylan-khor-a9a329234/" target="_blank">
-                                    <Linkedin/>
+                                    <Linkedin className="h-6 w-6 text-blue-400 group-hover:text-blue-300"/>
                                 </a>
                                 <a href="https://www.instagram.com/do3o4/" target="_blank">
-                                    <Instagram/>
+                                    <Instagram className="h-6 w-6 text-pink-400 group-hover:text-pink-300"/>
                                 </a>
                                 <a href="https://www.facebook.com/dylan.khor.505" target="_blank">
-                                    <Facebook/>
+                                    <Facebook className="h-6 w-6 text-blue-500 group-hover:text-blue-400" />
                                 </a>
                             </div>
                         </div>

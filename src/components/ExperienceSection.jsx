@@ -41,9 +41,9 @@ export const ExperienceSection = () => {
   const [animationName, setAnimationName] = useState("idle")
 
   return (
-    <section className="c-space my-20 relative">
+    <section className="c-space relative">
         <div className="w-full">
-            <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
+            <h2 className="text-2xl md:text-3xl font-bold mb-12 text-center">
                 My <span className="text-primary">Work Experience</span>
             </h2>
             <div className="work-container">
