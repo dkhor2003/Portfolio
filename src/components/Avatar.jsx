@@ -19,7 +19,7 @@ export function Avatar(props) {
   // });
   const group = useRef();
   
-  const { scene } = useGLTF('models/68c4a04fe57f6e1987f1203a.glb');
+  const { scene } = useGLTF('models/developer.glb');
   const clone = React.useMemo(() => SkeletonUtils.clone(scene), [scene]);
   const { nodes, materials } = useGraph(clone);
 
@@ -69,4 +69,4 @@ export function Avatar(props) {
   )
 }
 
-useGLTF.preload('models/68c4a04fe57f6e1987f1203a.glb')
+useGLTF.preload('models/developer.glb')

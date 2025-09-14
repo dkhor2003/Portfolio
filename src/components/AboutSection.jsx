@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils"
-import { Briefcase, Code, User} from "lucide-react";
+import { Briefcase, Cloud, Code, User} from "lucide-react";
 import resume from "@/assets/Resume_Dylan.pdf"
 import Typewriter from "typewriter-effect"
 
@@ -24,17 +24,17 @@ export const AboutSection = () => {
                     </div>
                     <div>
                         <span className="text-cyan-300/90 font-mono">
-                        <Typewriter options={{
-                            strings: ["Scalable Applications",
-                                      "Interactive UI", 
-                                      "Responsive Layouts",
-                                      "Intelligent Systems"],
-                            autoStart: true,
-                            loop: true,
-                            delay: 75,
-                            deleteSpeed: 50,
-                            pauseFor: 1000
-                        }}/>
+                            <Typewriter options={{
+                                strings: ["Scalable Applications",
+                                        "Interactive UI", 
+                                        "Responsive Layouts",
+                                        "Intelligent Systems"],
+                                autoStart: true,
+                                loop: true,
+                                delay: 75,
+                                deleteSpeed: 50,
+                                pauseFor: 1000
+                            }}/>
                         </span>
                     </div>
                 </div>
@@ -46,11 +46,7 @@ export const AboutSection = () => {
                         </h3>
 
                         <p className="text-muted-foreground"> 
-                            I enjoy learning new stuffs
-                        </p>
-
-                        <p className="text-muted-foreground"> 
-                            Passionate about tech
+                            Always learning new stuffs 
                         </p>
 
                         <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
@@ -76,26 +72,12 @@ export const AboutSection = () => {
                         <div className="gradient-border p-6 card-hover">
                             <div className="flex items-start gap-4">
                                 <div className="p-3 rounded-full bg-primary/10">
-                                    <Code className="h-6 w-6 text-primary"/>
-                                </div>
-                                <div className="text-left"> 
-                                    <h4 className="font-semibold text-lg"> Web Development </h4>
-                                    <p className="text-muted-foreground">
-                                        Creating responsive websites and web applications with modern frameworks.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="gradient-border p-6 card-hover">
-                            <div className="flex items-start gap-4">
-                                <div className="p-3 rounded-full bg-primary/10">
                                     <User className="h-6 w-6 text-primary"/>
                                 </div>
                                 <div className="text-left"> 
-                                    <h4 className="font-semibold text-lg"> UI/UX Design </h4>
+                                    <h4 className="font-semibold text-lg"> Frontend Development </h4>
                                     <p className="text-muted-foreground">
-                                        Designing intuitive user interfaces and seamless user experiences.
+                                    Building interactive user interfaces with modern frameworks and responsive design principles.
                                     </p>
                                 </div>
                             </div>
@@ -104,12 +86,26 @@ export const AboutSection = () => {
                         <div className="gradient-border p-6 card-hover">
                             <div className="flex items-start gap-4">
                                 <div className="p-3 rounded-full bg-primary/10">
-                                    <Briefcase className="h-6 w-6 text-primary"/>
+                                    <Code className="h-6 w-6 text-primary"/>
                                 </div>
                                 <div className="text-left"> 
-                                    <h4 className="font-semibold text-lg"> Project Management </h4>
+                                    <h4 className="font-semibold text-lg"> Backend Development </h4>
                                     <p className="text-muted-foreground">
-                                        Leading projects from conception to completion with agile methodologies. 
+                                        Developing secure, scalable server-side applications with robust API design and database optimization.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="gradient-border p-6 card-hover">
+                            <div className="flex items-start gap-4">
+                                <div className="p-3 rounded-full bg-primary/10">
+                                    <Cloud className="h-6 w-6 text-primary"/>
+                                </div>
+                                <div className="text-left"> 
+                                    <h4 className="font-semibold text-lg"> Cloud & DevOps </h4>
+                                    <p className="text-muted-foreground">
+                                        Deploying scalable cloud infrastructure and automated deployment pipelines for modern applications. 
                                     </p>
                                 </div>
                             </div>

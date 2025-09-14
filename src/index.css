@@ -155,6 +155,65 @@
   box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.3)
 }
 
+@utility c-space {
+  @apply sm:px-10 px-5;
+}
+
+@utility head-text {
+  @apply sm:text-4xl text-3xl font-semibold text-primary;
+}
+
+/* @utility work-container {
+  @apply grid lg:grid-cols-3 grid-cols-1 gap-5 mt-12;
+}
+
+@utility work-canvas {
+  @apply col-span-1 rounded-lg bg-black/50 border border-black/50;
+}
+
+@utility work-content {
+  @apply col-span-2 rounded-lg bg-black/50 border border-black/50 text-left;
+} */
+
+@utility work-container {
+  @apply grid lg:grid-cols-3 grid-cols-1 gap-5 mt-12;
+}
+
+@utility work-canvas {
+  @apply col-span-1 rounded-2xl bg-gradient-to-b from-neutral-900/80 to-neutral-800/50 border border-neutral-700/40 shadow-lg;
+}
+
+@utility work-content {
+  @apply col-span-2 rounded-2xl bg-gradient-to-b from-neutral-900/80 to-neutral-800/50 border border-neutral-700/40 shadow-lg text-left;
+}
+
+/* @utility work-content_container {
+  @apply grid grid-cols-[auto_1fr] items-start gap-5  transition-all ease-in-out duration-500 cursor-pointer hover:bg-primary rounded-lg sm:px-5 px-2.5;
+} */
+@utility work-content_container {
+  @apply flex items-start gap-5 transition-all ease-in-out duration-500 cursor-pointer 
+         rounded-xl sm:px-5 px-2.5 py-4 hover:bg-primary/20 hover:shadow-md;
+}
+
+/* @utility work-content_logo {
+  @apply rounded-3xl w-16 h-16 p-2 bg-black;
+} */
+
+@utility work-content_logo {
+  @apply rounded-2xl w-16 h-16 p-2 bg-neutral-900 border border-neutral-700 flex items-center justify-center shadow-md group-hover:border-primary/70;
+}
+
+@utility work-content_bar {
+  @apply flex-1 w-0.5 mt-4 h-full bg-white group-hover:bg-white group-last:hidden;
+}
+
+@utility neon-text {
+  @apply bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-400 bg-clip-text text-transparent font-bold text-glow;
+  background-size: 200% 200%;
+  animation: gradient 6s ease infinite;
+}
+
+
 #root {
   max-width: 100%;
   margin: 0 auto;
@@ -163,10 +222,10 @@
 }
 
 .slide {
-  display: inline-block;      /* inline with "Aspiring" */
+  display: inline-block; 
   overflow: hidden;
-  height: 1em;                /* lock to one line */
-  vertical-align: bottom;     /* align nicely */
+  height: 1em;             
+  vertical-align: bottom;   
 }
 
 .wrapper {
@@ -207,11 +266,4 @@
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
-}
-
-.neon-text {
-  @apply bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-400 
-         bg-clip-text text-transparent font-bold;
-  background-size: 200% 200%;
-  animation: gradient 6s ease infinite;
 }
