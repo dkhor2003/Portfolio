@@ -1,9 +1,7 @@
 import { Canvas } from "@react-three/fiber";
 import { FallingAvatar } from "@/components/FallingAvatar";
-
-// export const NotFound = () => {
-//     return <div> Not Found </div>;
-// };
+import { CanvasLoader } from "@/components/CanvasLoader";
+import { Suspense } from "react"
 
 export const NotFound = () => {
     return (
@@ -25,7 +23,9 @@ export const NotFound = () => {
                 className="w-full h-[70%]"
             >
                 <color attach="background" args={["#ececec"]} />
-                <FallingAvatar />
+                <Suspense fallback={<CanvasLoader />}>
+                    <FallingAvatar />
+                </Suspense>
             </Canvas>
         </div>
     );

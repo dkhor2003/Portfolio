@@ -81,9 +81,9 @@ export const ExperienceSection = () => {
                                     <div className="work-content_bar"/>
                                 </div>
                                 <div className="sm:p-5 px-2.5 py-5">
-                                    <p className="font-bold text-white">{name}</p>
-                                    <p className="text-sm mb-5 text-gray-400">{pos} -- <span className="italic">{duration}</span></p>
-                                    <p className="text-gray-300 group-hover:text-white transition ease-in-out duration-500">{title}</p>
+                                    <p className="font-bold">{name}</p>
+                                    <p className="text-sm mb-5 text-foreground/50">{pos} -- <span className="italic">{duration}</span></p>
+                                    <p className="text-foreground/80 group-hover:text-foreground transition ease-in-out duration-500">{title}</p>
                                 </div>
                             </div>
                         ))}
