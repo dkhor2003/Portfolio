@@ -40,7 +40,7 @@ export const HomeSection = () => {
 
             <div
               className={cn(
-                "text-4xl md:text-7xl font-bold flex flex-col md:flex-row items-center justify-center gap-2 mx-auto pt-10"
+                "text-2xl md:text-7xl font-bold flex flex-col md:flex-row items-center justify-center gap-2 mx-auto pt-10"
               )}
             >
               <span>Aspiring</span>
