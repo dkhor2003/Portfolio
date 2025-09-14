@@ -62,7 +62,7 @@ export const SkillsSection = () => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     {filteredSkills.map((skill, key) => (
                         <div className="group card-hover perspective-1000">
-                            <div className="relative transition-transform duration-1000 preserve-3d group-hover:rotate-y-180 group-focus:rotate-y-180">
+                            <div className="relative transition-transform duration-1000 preserve-3d group-hover:rotate-y-180 group-active:rotate-y-180">
                                 <div key={key} className="absolute inset-0 skill-card backface-hidden flex items-center justify-center">
                                     <img src={skill.logo} alt={skill.name} className="w-16 h-16 object-contain"/>
                                 </div>
