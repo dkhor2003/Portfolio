@@ -161,3 +161,57 @@
   padding: 0; 
   text-align: center; 
 }
+
+.slide {
+  display: inline-block;      /* inline with "Aspiring" */
+  overflow: hidden;
+  height: 1em;                /* lock to one line */
+  vertical-align: bottom;     /* align nicely */
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  animation: wordSlider 7s infinite cubic-bezier(0.9, 0.01, 0.3, 0.99);
+  white-space: nowrap; 
+}
+
+@keyframes wordSlider {
+  0% {
+    transform: translateY(0.5%);
+  }
+  12.5% {
+    transform: translateY(-12.5%);
+  }
+  25% {
+    transform: translateY(-25%);
+  }
+  37.5% {
+    transform: translateY(-37.5%);
+  }
+  50% {
+    transform: translateY(-50%);
+  }
+  62.5% {
+    transform: translateY(-62.5%);
+  }
+  75% {
+    transform: translateY(-75%);
+  }
+  87.5% {
+    transform: translateY(-87.5%);
+  }
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.neon-text {
+  @apply bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-400 
+         bg-clip-text text-transparent font-bold;
+  background-size: 200% 200%;
+  animation: gradient 6s ease infinite;
+}
