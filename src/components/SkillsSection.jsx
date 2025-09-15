@@ -1,6 +1,8 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { cn } from "@/lib/utils"
 import { SkillCard } from "@/components/SkillCard";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger"
 
 const skills = [
     {name: "HTML", level: 80, category: "Frontend", logo: "/logos/html.svg"},
@@ -38,10 +40,73 @@ export const SkillsSection = () => {
         (skill) => activeCategory === "All" || skill.category === activeCategory
     );
 
+    const sectionRef= useRef(null);
+    const titleRef = useRef(null); 
+    const contentRef = useRef(null);
+
+    useEffect(() => {
+        gsap.registerPlugin(ScrollTrigger);
+
+        gsap.fromTo(
+            titleRef.current,
+            {y: -300, opacity: 0},
+            {
+                y: 0,
+                opacity: 1,
+                duration: 0.8,
+                scrollTrigger: {
+                    trigger: sectionRef.current,
+                    start: "top 30%",
+                    toggleActions: "play none none reverse"
+                }
+            }
+        );
+
+        gsap.fromTo(
+            contentRef.current,
+            {y: 100, opacity: 0, filter: "blur(10px)"},
+            {
+                y: 0,
+                opacity: 1,
+                duration: 1.0,
+                filter: "blur(0px)",
+                scrollTrigger: {
+                    trigger: sectionRef.current,
+                    start: "top 10%",
+                    toggleActions: "play none none reverse"
+                }
+            }
+        );
+
+        gsap.fromTo(
+            sectionRef.current,
+            {backgroundPosition: "50% 0%"},
+            {
+                backgroundPosition: "50% 100%",
+                ease: "none", 
+                scrollTrigger: {
+                    trigger: sectionRef.current,
+                    start: "top bottom",
+                    end: "bottom top",
+                    scrub: true
+                }
+            }
+        );
+
+        // Cleanup, remove trigger from this section when the component unmounts
+        return () => {
+            ScrollTrigger.getAll().forEach((t) => {
+                if (t.vars.trigger === sectionRef.current) {
+                    t.kill(); 
+                }
+            })
+        }
+    }, []);
+
     return (
-        <section id="skills" className="py-24 px-4 relative bg-secondary/30">
+        <section ref={sectionRef} id="skills" className="py-24 px-4 relative bg-secondary/30">
             <div className="container mx-auto max-w-5xl">
-                <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
+                <h2 ref={titleRef} className="text-3xl md:text-4xl font-bold mb-12 text-center">
                     My <span className="text-primary">Skills</span>
                 </h2>
 
@@ -60,31 +125,9 @@ export const SkillsSection = () => {
                     ))}
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div ref={contentRef} className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
                     {filteredSkills.map((skill, key) => (
                         <SkillCard key={key} skill={skill}/>
-                        // <div className="group card-hover perspective-1000">
-                        //     <div className="relative transition-transform duration-1000 preserve-3d group-hover:rotate-y-180">
-                        //         <div key={key} className="absolute inset-0 skill-card backface-hidden flex items-center justify-center">
-                        //             <img src={skill.logo} alt={skill.name} className="w-16 h-16 object-contain"/>
-                        //         </div>
-
-                        //         <div key={key} className="inset-0 skill-card rotate-y-180 backface-hidden">
-                        //             <div className="text-left mb-4">
-                        //                 <h3 className="font-semibold text-lg">{skill.name}</h3>
-                        //             </div>
-                        //             <div className="w-full bg-secondary/50 h-2 rounded-full overflow-hidden">
-                        //                 <div 
-                        //                     className="bg-primary h-2 rounded-full origin-left animate-pulse-subtle"
-                        //                     style={{width: skill.level + "%"}}
-                        //                 />
-                        //             </div>
-                        //             <div className="text-right mt-1">
-                        //                 <span className="text-sm text-muted-foreground">{skill.level}%</span>
-                        //             </div>
-                        //         </div>
-                        //     </div>
-                        // </div>
                     ))}
                 </div>
             </div>

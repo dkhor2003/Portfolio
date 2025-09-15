@@ -1,13 +1,80 @@
 import { cn } from "@/lib/utils"
-import { Briefcase, Cloud, Code, User} from "lucide-react";
+import { Cloud, Code, User} from "lucide-react";
 import resume from "@/assets/Resume_Dylan.pdf"
 import Typewriter from "typewriter-effect"
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { useRef, useEffect } from "react";
 
 export const AboutSection = () => {
+
+    const sectionRef= useRef(null);
+    const titleRef = useRef(null); 
+    const contentRef = useRef(null);
+
+    useEffect(() => {
+        gsap.registerPlugin(ScrollTrigger);
+
+        gsap.fromTo(
+            titleRef.current,
+            {y: -300, opacity: 0},
+            {
+                y: 0,
+                opacity: 1,
+                duration: 0.8,
+                scrollTrigger: {
+                    trigger: sectionRef.current,
+                    start: "top 30%",
+                    toggleActions: "play none none reverse"
+                }
+            }
+        );
+
+        gsap.fromTo(
+            contentRef.current,
+            {y: 100, opacity: 0, filter: "blur(10px)"},
+            {
+                y: 0,
+                opacity: 1,
+                duration: 1.0,
+                filter: "blur(0px)",
+                scrollTrigger: {
+                    trigger: sectionRef.current,
+                    start: "top 10%",
+                    toggleActions: "play none none reverse"
+                }
+            }
+        );
+
+        gsap.fromTo(
+            sectionRef.current,
+            {backgroundPosition: "50% 0%"},
+            {
+                backgroundPosition: "50% 100%",
+                ease: "none", 
+                scrollTrigger: {
+                    trigger: sectionRef.current,
+                    start: "top bottom",
+                    end: "bottom top",
+                    scrub: true
+                }
+            }
+        );
+
+        // Cleanup, remove trigger from this section when the component unmounts
+        return () => {
+            ScrollTrigger.getAll().forEach((t) => {
+                if (t.vars.trigger === sectionRef.current) {
+                    t.kill(); 
+                }
+            })
+        }
+    }, []);
+
     return (
-        <section id="about" className="py-24 px-4 relative">
+        <section ref={sectionRef} id="about" className="py-24 px-4 relative">
             <div className="container mx-auto max-w-5xl">
-                <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
+                <h2 ref={titleRef} className="text-3xl md:text-4xl font-bold mb-12 text-center opacity-0">
                     About <span className="text-primary">Me</span>
                 </h2>
 
@@ -39,7 +106,7 @@ export const AboutSection = () => {
                     </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div ref={contentRef} className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                     <div className="space-y-6">
                         <h3 className="text-2xl font-semibold">
                             Passionate Developer

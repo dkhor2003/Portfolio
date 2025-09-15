@@ -7,9 +7,13 @@ import { ProjectsSection } from "@/components/ProjectsSection";
 import { ContactSection } from "@/components/ContactSection";
 import { Footer } from "@/components/Footer"
 import { ExperienceSection } from "@/components/ExperienceSection";
+import { Cursor } from "../components/Cursor";
 
 export const Home = () => {
     return <div className="min-h-screen bg-background text-foreground overflow-x-hidden"> 
+
+        {/* Custom cursor */}
+        <Cursor />
 
         {/* Background Effects */}
         <StarBackground/>

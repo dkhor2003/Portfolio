@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils";
 import { ArrowDown } from "lucide-react";
+import { motion } from "framer-motion";
 import Typewriter from "typewriter-effect";
 
 const titles = [
@@ -17,7 +18,17 @@ export const HomeSection = () => {
       <div className="container max-w-4xl mx-auto text-center z-10">
           <div className="space-y-9">
 
-            <div className="text-4xl sm:text-5xl lg:text-6xl font-bold font-mono tracking-tight flex flex-col md:flex-row items-center justify-center gap-2 whitespace-nowrap">
+            <motion.div 
+              initial={{opacity: 0, y: 80}}
+              animate={{opacity: 1, y: 0}}
+              transition={{
+                  type: "spring",
+                  stiffness: 40, 
+                  damping: 25,
+                  delay: 1.3,
+                  duration: 1.5
+              }}
+              className="text-4xl sm:text-5xl lg:text-6xl font-bold font-mono tracking-tight flex flex-col md:flex-row items-center justify-center gap-2 whitespace-nowrap">
               <div>
                 <span className="opacity-0 animate-fade-in"> 
                     <Typewriter options={{
@@ -35,10 +46,19 @@ export const HomeSection = () => {
                 <span className="text-5xl sm:text6xl lg:text-7xl text-primary mx-2 opacity-0 animate-fade-in-delay-1"> Dylan</span>
                 <span className="text-gradient opacity-0 animate-fade-in-delay-2"> Khor</span>
               </div>
-            </div>
+            </motion.div>
 
 
-            <div
+            <motion.div
+              initial={{opacity: 0, y: 80}}
+              animate={{opacity: 1, y: 0}}
+              transition={{
+                  type: "spring",
+                  stiffness: 40, 
+                  damping: 25,
+                  delay: 1.7,
+                  duration: 1.5
+              }}
               className={cn(
                 "text-2xl md:text-7xl font-bold flex flex-col md:flex-row items-center justify-center gap-2 mx-auto pt-10"
               )}
@@ -51,21 +71,45 @@ export const HomeSection = () => {
                   <span className="neon-text">Data Scientist</span>
                 </span>
               </span>
-            </div>
+            </motion.div>
 
-            <div className="pt-4 opacity-0 animate-fade-in-delay-4">
+            <motion.div 
+              initial={{opacity: 0, y: 80}}
+              animate={{opacity: 1, y: 0}}
+              transition={{
+                  type: "spring",
+                  stiffness: 40, 
+                  damping: 25,
+                  delay: 2.3,
+                  duration: 1.5
+              }}
+              className="pt-4 opacity-0 animate-fade-in-delay-4">
                 <a href="#projects" className="cosmic-button">
                     View My Work
                 </a>
-            </div>
+            </motion.div>
 
           </div>
         </div>
 
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce">
+        <div>
+          
+        </div>
+
+      <motion.div 
+        initial={{opacity: 0, y: 80}}
+        animate={{opacity: 1, y: 0}}
+        transition={{
+            type: "spring",
+            stiffness: 40, 
+            damping: 25,
+            delay: 2.5,
+            duration: 1.5
+        }}
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce">
         <span className="text-sm text-muted-foreground mb-2"> Scroll </span>
         <ArrowDown className="h-5 w-5 text-primary" />
-      </div>
+      </motion.div>
     </section>
   );
 };

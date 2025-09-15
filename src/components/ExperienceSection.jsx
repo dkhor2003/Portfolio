@@ -1,8 +1,10 @@
 import { OrbitControls } from "@react-three/drei"
 import { Canvas } from "@react-three/fiber"
-import { Suspense, useState } from "react"
+import { Suspense, useState, useEffect, useRef } from "react"
 import { CanvasLoader } from "@/components/CanvasLoader"
 import { Developer } from "@/components/Developer"
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger"
 
 const workExperiences = [
     {
@@ -39,14 +41,76 @@ const workExperiences = [
 export const ExperienceSection = () => {
 
   const [animationName, setAnimationName] = useState("idle")
+  const sectionRef= useRef(null);
+    const titleRef = useRef(null); 
+    const contentRef = useRef(null);
+
+    useEffect(() => {
+        gsap.registerPlugin(ScrollTrigger);
+
+        gsap.fromTo(
+            titleRef.current,
+            {y: -300, opacity: 0},
+            {
+                y: 0,
+                opacity: 1,
+                duration: 0.8,
+                scrollTrigger: {
+                    trigger: sectionRef.current,
+                    start: "top 30%",
+                    toggleActions: "play none none reverse"
+                }
+            }
+        );
+
+        gsap.fromTo(
+            contentRef.current,
+            {y: 100, opacity: 0, filter: "blur(10px)"},
+            {
+                y: 0,
+                opacity: 1,
+                duration: 1.0,
+                filter: "blur(0px)",
+                scrollTrigger: {
+                    trigger: sectionRef.current,
+                    start: "top 10%",
+                    toggleActions: "play none none reverse"
+                }
+            }
+        );
+
+        gsap.fromTo(
+            sectionRef.current,
+            {backgroundPosition: "50% 0%"},
+            {
+                backgroundPosition: "50% 100%",
+                ease: "none", 
+                scrollTrigger: {
+                    trigger: sectionRef.current,
+                    start: "top bottom",
+                    end: "bottom top",
+                    scrub: true
+                }
+            }
+        );
+
+        // Cleanup, remove trigger from this section when the component unmounts
+        return () => {
+            ScrollTrigger.getAll().forEach((t) => {
+                if (t.vars.trigger === sectionRef.current) {
+                    t.kill(); 
+                }
+            })
+        }
+    }, []);
 
   return (
-    <section className="c-space relative">
+    <section ref={sectionRef} className="c-space relative">
         <div className="w-full">
-            <h2 className="text-2xl md:text-3xl font-bold mb-12 text-center">
+            <h2 ref={titleRef} className="text-2xl md:text-3xl font-bold mb-12 text-center">
                 My <span className="text-primary">Work Experience</span>
             </h2>
-            <div className="work-container">
+            <div ref={contentRef} className="work-container">
                 <div className="work-canvas">
                     <Canvas>
                         <ambientLight intensity={3} />

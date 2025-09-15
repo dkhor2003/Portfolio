@@ -1,5 +1,8 @@
 import { cn } from "@/lib/utils"
 import { ArrowRight, ExternalLink, Github } from "lucide-react";
+import { useEffect, useRef } from "react"
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger"
 
 const projects = [
     {
@@ -32,10 +35,73 @@ const projects = [
 ];
 
 export const ProjectsSection = () => {
+    const sectionRef= useRef(null);
+    const titleRef = useRef(null); 
+    const contentRef = useRef(null);
+
+    useEffect(() => {
+        gsap.registerPlugin(ScrollTrigger);
+
+        gsap.fromTo(
+            titleRef.current,
+            {y: -300, opacity: 0},
+            {
+                y: 0,
+                opacity: 1,
+                duration: 0.8,
+                scrollTrigger: {
+                    trigger: sectionRef.current,
+                    start: "top 30%",
+                    toggleActions: "play none none reverse"
+                }
+            }
+        );
+
+        gsap.fromTo(
+            contentRef.current,
+            {y: 100, opacity: 0, filter: "blur(10px)"},
+            {
+                y: 0,
+                opacity: 1,
+                duration: 1.0,
+                filter: "blur(0px)",
+                scrollTrigger: {
+                    trigger: sectionRef.current,
+                    start: "top 10%",
+                    toggleActions: "play none none reverse"
+                }
+            }
+        );
+
+        gsap.fromTo(
+            sectionRef.current,
+            {backgroundPosition: "50% 0%"},
+            {
+                backgroundPosition: "50% 100%",
+                ease: "none", 
+                scrollTrigger: {
+                    trigger: sectionRef.current,
+                    start: "top bottom",
+                    end: "bottom top",
+                    scrub: true
+                }
+            }
+        );
+
+        // Cleanup, remove trigger from this section when the component unmounts
+        return () => {
+            ScrollTrigger.getAll().forEach((t) => {
+                if (t.vars.trigger === sectionRef.current) {
+                    t.kill(); 
+                }
+            })
+        }
+    }, []);
+
     return (
-        <section id="projects" className="py-24 px-4 relative">
+        <section ref={sectionRef} id="projects" className="py-24 px-4 relative">
             <div className="container mx-auto max-w-5xl">
-                <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
+                <h2 ref={titleRef} className="text-3xl md:text-4xl font-bold mb-4 text-center">
                     Featured <span className="text-primary">Projects</span>
                 </h2>
 
@@ -43,7 +109,7 @@ export const ProjectsSection = () => {
                     Here are some of projects I've built up over the years since I started learning about tech.
                 </p>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div ref={contentRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {projects.map((project, key) => (
                         <div key={key} className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover relative">
                             <div className="h-48 overflow-hidden">

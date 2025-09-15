@@ -2,6 +2,7 @@ import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { motion } from "framer-motion";
 
 const navItems = [
     {name: "Home", href: "#home"},
@@ -46,14 +47,27 @@ export const Navbar = () => {
 
    
     return (
-      <><nav className={cn(
-            "fixed w-full z-40 transition-all duration-300",
-            isScrolled ? "py-3 bg-background/80 backdrop-blur-md shadow-xs" : "py-5"
-        )}>
+      <><nav 
+            className={cn(
+                "fixed w-full z-40 transition-all duration-300",
+                isScrolled ? "py-3 bg-background/80 backdrop-blur-md shadow-xs" : "py-5"
+                )}
+        >
 
             <div className="container flex items-center justify-between">
 
-                <a className="text-xl font-bold text-primary flex items-center gap-4" href="#home">
+                <motion.a 
+                    initial={{ opacity: 0, x: -50}}
+                    animate={{ opacity: 1, x: 0}}
+                    transition={{
+                        type: "spring",
+                        stiffness: 200, 
+                        damping: 25,
+                        delay: 0.3,
+                        duration: 2.0
+                    }}
+                    className="text-xl font-bold text-primary flex items-center gap-4" 
+                    href="#home">
                     <img
                         src="/dylan.png"
                         alt="Dylan's Profile Picture"
@@ -61,41 +75,58 @@ export const Navbar = () => {
                     <span className="relative z-10">
                         <span className="text-glow text-foreground"> Dylan's </span> Portfolio
                     </span>
-                </a>
+                </motion.a>
 
                 {/* Desktop Nav */}
                 <div className="hidden md:flex space-x-11">
                     {navItems.map((item, key) => (
-                        <a key={key} href={item.href} className="text-foreground/80 hover:text-primary transition-colors duration-300">
+                        <motion.a 
+                            key={key}
+                            initial={{opacity: 0, y: -20}}
+                            animate={{opacity: 1, y: 0}}
+                            transition={{
+                                type: "spring",
+                                stiffness: 200, 
+                                damping: 25,
+                                delay: 0.7 + key * 0.2,
+                            }}
+                            href={item.href} 
+                            className="text-foreground/80 hover:text-primary transition-colors duration-300">
                             {item.name}
-                        </a>
+                        </motion.a>
                     ))}
                     <ThemeToggle />
                 </div>
 
                 {/* Mobile Nav */}
 
-                <button
+                <motion.button
+                    whileTap={{scale: 0.7}}
                     onClick={() => setIsMenuOpen(true)}
                     className="md:hidden p-2 text-foreground z-50"
                     aria-label="Open Menu"
                 >
                     <Menu size={24}/>
-                </button>
+                </motion.button>
             </div>
         </nav>
-        <div className={cn(
+        <motion.div 
+            initial={{opacity: 0}}
+            animate={{opacity: isMenuOpen ? 1 : 0}}
+            transition={{ duration: 0.5 , ease: "easeInOut"}}
+            className={cn(
             "fixed inset-0 bg-background/80 backdrop-blur-md z-40 flex flex-col",
-            "items-center justify-center transition-all duration-300 md:hidden",
-            isMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+            "items-center justify-center transition-all duration-300 md:hidden overflow-hidden",
+            isMenuOpen ? "pointer-events-auto" : "pointer-events-none"
         )}>
-            <button
+            <motion.button
+                whileTap={{scale: 0.7}}
                 onClick={() => setIsMenuOpen(false)}
                 className=" fixed top-6 right-6 md:hidden p-2 text-foreground z-50"
                 aria-label="Close Menu"
             >
                 <X size={24} />
-            </button>
+            </motion.button>
             <div className="flex flex-col space-y-8 text-xl">
                 {navItems.map((item, key) => (
                     <a
@@ -108,6 +139,6 @@ export const Navbar = () => {
                     </a>
                 ))}
             </div>
-        </div></>
+        </motion.div></>
     );
 };
