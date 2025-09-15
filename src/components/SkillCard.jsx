@@ -39,7 +39,7 @@ export const SkillCard = ({key, skill}) => {
 
                 <div key={key} className="inset-0 skill-card rotate-y-180 backface-hidden">
                     <div className="text-left mb-4">
-                        <h3 className="font-semibold text-sm sm:text-lg">{skill.name}</h3>
+                        <h3 className="font-semibold text-sm xs:text-lg">{skill.name}</h3>
                     </div>
                     <div className="w-full bg-secondary/50 h-2 rounded-full overflow-hidden">
                         <div 
