@@ -8,7 +8,7 @@ const skills = [
     {name: "HTML", level: 80, category: "Frontend", logo: "/logos/html.svg"},
     {name: "CSS", level: 80, category: "Frontend", logo: "/logos/css.svg"},
     {name: "React", level: 85, category: "Frontend", logo: "/logos/react.svg"},
-    {name: "Tailwind CSS", level: 85, category: "Frontend", logo: "/logos/tailwind-css.svg"},
+    {name: "Tailwind", level: 85, category: "Frontend", logo: "/logos/tailwind-css.svg"},
     {name: "Three.js", level: 50, category: "Frontend", logo: "/logos/three.svg"},
 
     {name: "Python", level: 90, category: "Language", logo: "/logos/python.svg"},
@@ -43,6 +43,7 @@ export const SkillsSection = () => {
     const sectionRef= useRef(null);
     const titleRef = useRef(null); 
     const contentRef = useRef(null);
+    const buttonContainerRef = useRef(null); 
 
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
@@ -72,26 +73,29 @@ export const SkillsSection = () => {
                 filter: "blur(0px)",
                 scrollTrigger: {
                     trigger: sectionRef.current,
-                    start: "top 10%",
+                    start: "top 30%",
                     toggleActions: "play none none reverse"
                 }
             }
         );
 
         gsap.fromTo(
-            sectionRef.current,
-            {backgroundPosition: "50% 0%"},
+            buttonContainerRef.current.querySelectorAll("button"),
+            { y: 40, opacity: 0, filter: "blur(6px)" },
             {
-                backgroundPosition: "50% 100%",
-                ease: "none", 
-                scrollTrigger: {
-                    trigger: sectionRef.current,
-                    start: "top bottom",
-                    end: "bottom top",
-                    scrub: true
-                }
+              y: 0,
+              opacity: 1,
+              filter: "blur(0px)",
+              duration: 1.0,
+              ease: "power3.out",
+              stagger: 0.15, // each button comes in 0.15s after the previous one
+              scrollTrigger: {
+                trigger: sectionRef.current,
+                start: "top 30%", // start anim when container is near viewport
+                toggleActions: "play none none reverse"
+              }
             }
-        );
+          );
 
         // Cleanup, remove trigger from this section when the component unmounts
         return () => {
@@ -110,7 +114,7 @@ export const SkillsSection = () => {
                     My <span className="text-primary">Skills</span>
                 </h2>
 
-                <div className="flex flex-wrap justify-center gap-4 mb-12">
+                <div ref={buttonContainerRef} className="flex flex-col flex-wrap sm:flex-row justify-center gap-4 mb-12">
                     {categories.map((category, key) => (
                         <button 
                             key={key} 

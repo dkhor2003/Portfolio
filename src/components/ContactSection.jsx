@@ -4,6 +4,7 @@ import { useToast } from "@/hooks/use-toast"
 import { useState, useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger"
+import SplitType from "split-type";
 
 
 export const ContactSection = () => {
@@ -26,6 +27,7 @@ export const ContactSection = () => {
     const sectionRef= useRef(null);
     const titleRef = useRef(null); 
     const contentRef = useRef(null);
+    const sentenceRef = useRef(null);
 
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
@@ -61,20 +63,21 @@ export const ContactSection = () => {
             }
         );
 
-        gsap.fromTo(
-            sectionRef.current,
-            {backgroundPosition: "50% 0%"},
-            {
-                backgroundPosition: "50% 100%",
-                ease: "none", 
-                scrollTrigger: {
-                    trigger: sectionRef.current,
-                    start: "top bottom",
-                    end: "bottom top",
-                    scrub: true
-                }
-            }
-        );
+        const split = new SplitType(sentenceRef.current, { types: "words" });
+        
+        gsap.from(split.words, {
+        y: 20,
+        opacity: 0,
+        filter: "blur(4px)",
+        duration: 0.5,
+        ease: "power3.out",
+        stagger: 0.08, // each word appears one after another
+        scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 30%",
+            toggleActions: "play none none reverse"
+        }
+        });
 
         // Cleanup, remove trigger from this section when the component unmounts
         return () => {
@@ -93,7 +96,7 @@ export const ContactSection = () => {
                     Get In <span className="text-primary">Touch</span>
                 </h2>
 
-                <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+                <p ref={sentenceRef} className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
                     Let's connect—whether it's work, collaboration, or just something random. 
                 </p>
 

@@ -11,6 +11,7 @@ export const AboutSection = () => {
     const sectionRef= useRef(null);
     const titleRef = useRef(null); 
     const contentRef = useRef(null);
+    const sentenceRef = useRef(null); 
 
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
@@ -40,23 +41,24 @@ export const AboutSection = () => {
                 filter: "blur(0px)",
                 scrollTrigger: {
                     trigger: sectionRef.current,
-                    start: "top 10%",
+                    start: "top 30%",
                     toggleActions: "play none none reverse"
                 }
             }
         );
 
         gsap.fromTo(
-            sectionRef.current,
-            {backgroundPosition: "50% 0%"},
+            sentenceRef.current,
+            {y: 100, opacity: 0, filter: "blur(10px)"},
             {
-                backgroundPosition: "50% 100%",
-                ease: "none", 
+                y: 0,
+                opacity: 1,
+                duration: 1.0,
+                filter: "blur(0px)",
                 scrollTrigger: {
                     trigger: sectionRef.current,
-                    start: "top bottom",
-                    end: "bottom top",
-                    scrub: true
+                    start: "top 30%",
+                    toggleActions: "play none none reverse"
                 }
             }
         );
@@ -78,9 +80,11 @@ export const AboutSection = () => {
                     About <span className="text-primary">Me</span>
                 </h2>
 
-                <div className={cn(
+                <div 
+                    ref={sentenceRef}
+                    className={cn(
                     "text-2xl font-bold flex flex-col md:flex-row items-center justify-center gap-2",
-                    "text-muted-foreground mx-auto opacity-0 animate-fade-in-delay-3 pb-6"
+                    "text-muted-foreground mx-auto opacity-0 pb-6"
                 )}> 
                     <div>
                         <span className={cn(
@@ -90,7 +94,7 @@ export const AboutSection = () => {
                         </span>
                     </div>
                     <div>
-                        <span className="text-cyan-300/90 font-mono text-md sm:text-2xl">
+                        <span className="text-cyan-300/90 font-mono text-[21px] xs:text-2xl">
                             <Typewriter options={{
                                 strings: ["Scalable Applications",
                                         "Interactive UI", 

@@ -50,11 +50,11 @@ export const ExperienceSection = () => {
 
         gsap.fromTo(
             titleRef.current,
-            {y: -300, opacity: 0},
+            {y: -100, opacity: 0},
             {
                 y: 0,
                 opacity: 1,
-                duration: 0.8,
+                duration: 0.5,
                 scrollTrigger: {
                     trigger: sectionRef.current,
                     start: "top 30%",
@@ -65,34 +65,21 @@ export const ExperienceSection = () => {
 
         gsap.fromTo(
             contentRef.current,
-            {y: 100, opacity: 0, filter: "blur(10px)"},
+            { y: 100, opacity: 0, scale: 0.8, transformOrigin: "center" },
             {
-                y: 0,
-                opacity: 1,
-                duration: 1.0,
-                filter: "blur(0px)",
-                scrollTrigger: {
-                    trigger: sectionRef.current,
-                    start: "top 10%",
-                    toggleActions: "play none none reverse"
-                }
+              y: 0,
+              opacity: 1,
+              scale: 1,
+              duration: 1.5,
+              ease: "back.out(1.7)",
+              scrollTrigger: {
+                trigger: sectionRef.current,
+                start: "top 30%",
+                toggleActions: "play none none reverse"
+              }
             }
-        );
+          );
 
-        gsap.fromTo(
-            sectionRef.current,
-            {backgroundPosition: "50% 0%"},
-            {
-                backgroundPosition: "50% 100%",
-                ease: "none", 
-                scrollTrigger: {
-                    trigger: sectionRef.current,
-                    start: "top bottom",
-                    end: "bottom top",
-                    scrub: true
-                }
-            }
-        );
 
         // Cleanup, remove trigger from this section when the component unmounts
         return () => {
