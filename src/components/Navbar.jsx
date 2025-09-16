@@ -43,7 +43,7 @@ export const Navbar = () => {
       
         // cleanup in case component unmounts
         return () => document.body.classList.remove("overflow-hidden");
-    }, [isMenuOpen]);
+    }, []);
 
    
     return (
