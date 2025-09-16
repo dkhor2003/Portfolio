@@ -70,7 +70,7 @@ export const ExperienceSection = () => {
               y: 0,
               opacity: 1,
               scale: 1,
-              duration: 1.5,
+              duration: 1.2,
               ease: "back.out(1.7)",
               scrollTrigger: {
                 trigger: sectionRef.current,
@@ -78,7 +78,7 @@ export const ExperienceSection = () => {
                 toggleActions: "play none none reverse"
               }
             }
-          );
+        );
 
 
         // Cleanup, remove trigger from this section when the component unmounts
