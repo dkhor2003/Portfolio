@@ -98,7 +98,7 @@ export const ExperienceSection = () => {
                 My <span className="text-primary">Work Experience</span>
             </h2>
             <div ref={contentRef} className="work-container">
-                <div className="work-canvas">
+                <div className="work-canvas h-50 sm:h-full">
                     <Canvas>
                         <ambientLight intensity={3} />
                         <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
