@@ -4,6 +4,21 @@ import { useEffect, useRef } from "react"
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import SplitType from "split-type";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
+const logoMapping = {
+    "C++": "/logos/c++.svg",
+    "Vulkan": "/logos/vulkan.svg",
+    "JavaScript": "/logos/javascript.svg",
+    "React": "/logos/react.svg",
+    "Tailwind": "/logos/tailwind-css.svg",
+    "Three": "/logos/three.svg",
+    "Java": "/logos/java.svg",
+    "Python": "/logos/python.svg",
+    "PyTorch": "/logos/pytorch.svg"
+}
 
 const projects = [
     {
@@ -17,6 +32,15 @@ const projects = [
     },
     {
         id: 2,
+        title: "My Portfolio",
+        description: `The place where I showcase myself, and you are currently looking at it. `,
+        image: "/projects/portfolio.png",
+        tags: ["JavaScript", "React", "Tailwind", "Three"],
+        demoUrl: "https://dylan-khor-portfolio.vercel.app/",
+        githubUrl: "https://github.com/dkhor2003/Portfolio"
+    },
+    {
+        id: 3,
         title: "Checkers AI",
         description: `Single-player Checkers game featuring competitive AI and a user-friendly GUI.`,
         image: "/projects/checkers_ai.png",
@@ -25,7 +49,7 @@ const projects = [
         githubUrl: "https://github.com/dkhor2003/Checkers-AI"
     },
     {
-        id: 3,
+        id: 4,
         title: "Randomized Progressive Deblurring",
         description: `Progressive training approach for image classification with improved generalization.`,
         image: "/projects/progressive_deblurring.png",
@@ -34,6 +58,34 @@ const projects = [
         githubUrl: "https://github.com/dkhor2003/Progressive-Resizing-With-Randomized-Progressive-Deblurring"
     },
 ];
+
+const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500, 
+    slidesToShow: 3,
+    centerMode: true,
+    centerPadding: "40px",
+    slidesToScroll: 1,
+    responsive: [
+        {
+          breakpoint: 1024, // screens < 1024px
+          settings: {
+            slidesToShow: 1,
+            centerMode: true,
+            centerPadding: "40px"
+          },
+        },
+        {
+          breakpoint: 640, // screens < 640px
+          settings: {
+            slidesToShow: 1,
+            centerMode: true,
+            centerPadding: "20px",
+          },
+        },
+    ],
+};
 
 export const ProjectsSection = () => {
     const sectionRef= useRef(null);
@@ -112,7 +164,7 @@ export const ProjectsSection = () => {
                     Here are some of projects I've built up over the years since I started learning about tech.
                 </p>
 
-                <div ref={contentRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <Slider {...settings}>
                     {projects.map((project, key) => (
                         <div key={key} className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover relative">
                             <div className="h-48 overflow-hidden">
@@ -123,14 +175,14 @@ export const ProjectsSection = () => {
                                 />
                             </div>
 
-                            <div className="p-6 pb-16">
+                            <div className="h-80 p-6">
                                 <div className="flex flex-wrap gap-2 mb-4">
                                     {project.tags.map((tag) => (
                                         <span className={cn(
                                             "px-2 py-1 text-xs font-medium rounded-full bg-primary/30 text-secondary-foreground",
                                             "border "
                                         )}>
-                                            {tag}
+                                            <img src={logoMapping[tag]} alt={tag} className="w-10 h-10 lg:w-7 lg:h-7"/>
                                         </span>
                                     ))}
                                 </div>
@@ -158,7 +210,7 @@ export const ProjectsSection = () => {
                             </div>
                         </div>
                     ))}
-                </div>
+                </Slider>
 
                 <div className="text-center mt-12">
                     <a 
