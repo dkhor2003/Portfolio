@@ -65,7 +65,7 @@ const settings = {
     speed: 500, 
     slidesToShow: 1,
     centerMode: true,
-    centerPadding: "50px",
+    centerPadding: "20px",
     slidesToScroll: 1,
 };
 
