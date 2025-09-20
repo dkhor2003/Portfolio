@@ -63,28 +63,10 @@ const settings = {
     dots: true,
     infinite: true,
     speed: 500, 
-    slidesToShow: 3,
+    slidesToShow: 1,
     centerMode: true,
-    centerPadding: "40px",
+    centerPadding: "50px",
     slidesToScroll: 1,
-    responsive: [
-        {
-          breakpoint: 1024, // screens < 1024px
-          settings: {
-            slidesToShow: 1,
-            centerMode: true,
-            centerPadding: "40px"
-          },
-        },
-        {
-          breakpoint: 640, // screens < 640px
-          settings: {
-            slidesToShow: 1,
-            centerMode: true,
-            centerPadding: "20px",
-          },
-        },
-    ],
 };
 
 export const ProjectsSection = () => {
@@ -182,7 +164,7 @@ export const ProjectsSection = () => {
                                             "px-2 py-1 text-xs font-medium rounded-full bg-primary/30 text-secondary-foreground",
                                             "border "
                                         )}>
-                                            <img src={logoMapping[tag]} alt={tag} className="w-10 h-10 lg:w-7 lg:h-7"/>
+                                            <img src={logoMapping[tag]} alt={tag} className="w-5 h-5 sm:w-10 sm:h-10 lg:w-15 lg:h-15"/>
                                         </span>
                                     ))}
                                 </div>
