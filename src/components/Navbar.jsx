@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 const navItems = [
     {name: "Home", href: "#home"},
     {name: "About", href: "#about"},
+    {name: "Experience", href: "#experience"},
     {name: "Skills", href: "#skills"},
     {name: "Projects", href: "#projects"},
     {name: "Contact", href: "#contact"}
@@ -78,7 +79,7 @@ export const Navbar = () => {
                 </motion.a>
 
                 {/* Desktop Nav */}
-                <div className="hidden md:flex space-x-11">
+                <div className="hidden lg:flex space-x-11">
                     {navItems.map((item, key) => (
                         <motion.a 
                             key={key}
@@ -103,7 +104,7 @@ export const Navbar = () => {
                 <motion.button
                     whileTap={{scale: 0.7}}
                     onClick={() => setIsMenuOpen(true)}
-                    className="md:hidden p-2 text-foreground z-50"
+                    className="lg:hidden p-2 text-foreground z-50"
                     aria-label="Open Menu"
                 >
                     <Menu size={24}/>
@@ -116,13 +117,13 @@ export const Navbar = () => {
             transition={{ duration: 0.5 , ease: "easeInOut"}}
             className={cn(
             "fixed inset-0 bg-background/80 backdrop-blur-md z-40 flex flex-col",
-            "items-center justify-center transition-all duration-300 md:hidden overflow-hidden",
+            "items-center justify-center transition-all duration-300 lg:hidden overflow-hidden",
             isMenuOpen ? "pointer-events-auto" : "pointer-events-none"
         )}>
             <motion.button
                 whileTap={{scale: 0.7}}
                 onClick={() => setIsMenuOpen(false)}
-                className=" fixed top-6 right-6 md:hidden p-2 text-foreground z-50"
+                className=" fixed top-6 right-6 lg:hidden p-2 text-foreground z-50"
                 aria-label="Close Menu"
             >
                 <X size={24} />
