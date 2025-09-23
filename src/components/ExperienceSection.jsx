@@ -92,7 +92,7 @@ export const ExperienceSection = () => {
     }, []);
 
   return (
-    <section ref={sectionRef} id="experience" className="c-space py-24 px-20 relative">
+    <section ref={sectionRef} id="experience" className="c-space py-24 px-2 md:px-20 relative">
         <div className="w-full">
             <h2 ref={titleRef} className="text-2xl md:text-3xl font-bold mb-12 text-center">
                 My <span className="text-primary">Work Experience</span>
