@@ -57,7 +57,7 @@ export const ContactSection = () => {
                 filter: "blur(0px)",
                 scrollTrigger: {
                     trigger: sectionRef.current,
-                    start: "top 10%",
+                    start: "top 30%",
                     toggleActions: "play none none reverse"
                 }
             }

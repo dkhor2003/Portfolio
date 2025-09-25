@@ -12,7 +12,7 @@ const workExperiences = [
         name: "Iowa State University",
         pos: "Graduate Research Assistant",
         duration: "Jan 2025 - Present",
-        title: "Advancing adaptive discretization techniques, legged robot safety testing and bridging the Sim2Real gap to enhance real-world applicability and efficiency.",
+        title: "Advancing adaptive discretization techniques in the domain of robotics to enhance real-world applicability and efficiency.",
         icon: "/company-logos/isu-logo.jpg",
         animation: "cheer"
     },
@@ -21,7 +21,7 @@ const workExperiences = [
         name: "Source Allies",
         pos: "Apprentice Software Engineer",
         duration: "May 2025 - Aug 2025",
-        title: "Improved onboarding system through better observability, security, scalability \
+        title: "Streamlined internal account management system through better observability, security, scalability \
                 and maintainability, while also expanded internal chatbot with multi-session \
                 support and an expanded knowledge base to improve user experience and response accuaracy.",
         icon: "/company-logos/source-allies-logo.webp",

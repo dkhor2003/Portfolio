@@ -146,53 +146,55 @@ export const ProjectsSection = () => {
                     Here are some of projects I've built up over the years since I started learning about tech.
                 </p>
 
-                <Slider {...settings}>
-                    {projects.map((project, key) => (
-                        <div key={key} className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover relative">
-                            <div className="h-48 overflow-hidden">
-                                <img 
-                                    src={project.image} 
-                                    alt={project.title} 
-                                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                                />
-                            </div>
-
-                            <div className="h-80 p-6">
-                                <div className="flex flex-wrap gap-2 mb-4">
-                                    {project.tags.map((tag) => (
-                                        <span className={cn(
-                                            "px-2 py-1 text-xs font-medium rounded-full bg-primary/30 text-secondary-foreground",
-                                            "border "
-                                        )}>
-                                            <img src={logoMapping[tag]} alt={tag} className="w-5 h-5 sm:w-10 sm:h-10 lg:w-15 lg:h-15"/>
-                                        </span>
-                                    ))}
+                <div ref={contentRef}>
+                    <Slider {...settings}>
+                        {projects.map((project, key) => (
+                            <div key={key} className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover relative">
+                                <div className="h-48 overflow-hidden">
+                                    <img 
+                                        src={project.image} 
+                                        alt={project.title} 
+                                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                    />
                                 </div>
 
+                                <div className="h-80 p-6">
+                                    <div className="flex flex-wrap gap-2 mb-4">
+                                        {project.tags.map((tag) => (
+                                            <span className={cn(
+                                                "px-2 py-1 text-xs font-medium rounded-full bg-primary/30 text-secondary-foreground",
+                                                "border "
+                                            )}>
+                                                <img src={logoMapping[tag]} alt={tag} className="w-5 h-5 sm:w-10 sm:h-10 lg:w-15 lg:h-15"/>
+                                            </span>
+                                        ))}
+                                    </div>
 
-                                <h3 className="text-xl font-semibold mb-2"> {project.title} </h3>
-                                <p className="text-muted-foreground text-sm mb-4 mx-2">{project.description}</p>
-                            </div>
 
-                            <div className="absolute bottom-4 left-4 flex space-x-3">
-                                <a 
-                                    href={project.demoUrl} 
-                                    target="_blank"
-                                    className="text-foreground/80 hover:text-primary transition-colors duration-300"
-                                >
-                                    <ExternalLink size={24}/>
-                                </a>
-                                <a 
-                                    href={project.githubUrl} 
-                                    target="_blank"
-                                    className="text-foreground/80 hover:text-primary transition-colors duration-300"
-                                >
-                                    <Github size={24}/>
-                                </a>
+                                    <h3 className="text-xl font-semibold mb-2"> {project.title} </h3>
+                                    <p className="text-muted-foreground text-sm mb-4 mx-2">{project.description}</p>
+                                </div>
+
+                                <div className="absolute bottom-4 left-4 flex space-x-3">
+                                    <a 
+                                        href={project.demoUrl} 
+                                        target="_blank"
+                                        className="text-foreground/80 hover:text-primary transition-colors duration-300"
+                                    >
+                                        <ExternalLink size={24}/>
+                                    </a>
+                                    <a 
+                                        href={project.githubUrl} 
+                                        target="_blank"
+                                        className="text-foreground/80 hover:text-primary transition-colors duration-300"
+                                    >
+                                        <Github size={24}/>
+                                    </a>
+                                </div>
                             </div>
-                        </div>
-                    ))}
-                </Slider>
+                        ))}
+                    </Slider>
+                </div>
 
                 <div className="text-center mt-12">
                     <a 
