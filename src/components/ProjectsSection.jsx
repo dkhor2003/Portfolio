@@ -145,7 +145,7 @@ export const ProjectsSection = () => {
                 <p ref={sentenceRef} className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
                     Here are some of projects I've built up over the years since I started learning about tech.
                 </p>
-
+            
                 <div ref={contentRef}>
                     <Slider {...settings}>
                         {projects.map((project, key) => (
@@ -194,16 +194,16 @@ export const ProjectsSection = () => {
                             </div>
                         ))}
                     </Slider>
-                </div>
 
-                <div className="text-center mt-12">
-                    <a 
-                        className="cosmic-button w-fit flex items-center mx-auto gap-2"
-                        target="_blank"
-                        href="https://github.com/dkhor2003"
-                    >
-                        Check My GitHub <ArrowRight size={16}/>
-                    </a>
+                    <div className="text-center mt-12">
+                        <a 
+                            className="cosmic-button w-fit flex items-center mx-auto gap-2"
+                            target="_blank"
+                            href="https://github.com/dkhor2003"
+                        >
+                            Check My GitHub <ArrowRight size={16}/>
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>

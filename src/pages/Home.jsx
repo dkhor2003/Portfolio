@@ -1,4 +1,4 @@
-import { StarBackground } from "@/components/StarBackground";
+import { Background } from "@/components/Background";
 import { Navbar } from "@/components/Navbar";
 import { HomeSection } from "@/components/HomeSection";
 import { AboutSection } from "@/components/AboutSection";
@@ -16,7 +16,7 @@ export const Home = () => {
         <Cursor />
 
         {/* Background Effects */}
-        <StarBackground/>
+        <Background/>
 
         {/* Navigation Bar */}
         <Navbar/>

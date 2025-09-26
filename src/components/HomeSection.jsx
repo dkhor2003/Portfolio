@@ -68,7 +68,7 @@ export const HomeSection = () => {
                 <span className="wrapper">
                   <span className="neon-text">Full-Stack Developer</span>
                   <span className="neon-text">AI Engineer</span>
-                  <span className="neon-text">Data Scientist</span>
+                  <span className="neon-text">Computer Programmer</span>
                 </span>
               </span>
             </motion.div>

@@ -107,6 +107,11 @@ export const SkillsSection = () => {
         }
     }, []);
 
+    // Make GSAP recalculate trigger positions, so downstream animations work properly
+    useEffect(() => {
+        ScrollTrigger.refresh();
+    }, [activeCategory]);
+
     return (
         <section ref={sectionRef} id="skills" className="py-24 px-4 relative bg-secondary/30">
             <div className="container mx-auto max-w-5xl">

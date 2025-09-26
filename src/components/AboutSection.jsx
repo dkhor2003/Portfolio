@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils"
-import { Cloud, Code, User} from "lucide-react";
+import { Cloud, Code, User, Lightbulb, Users, Search, Target, BookOpen, Eye} from "lucide-react";
 import resume from "@/assets/Resume_Dylan.pdf"
 import Typewriter from "typewriter-effect"
 import { gsap } from "gsap";
@@ -11,7 +11,16 @@ export const AboutSection = () => {
     const sectionRef= useRef(null);
     const titleRef = useRef(null); 
     const contentRef = useRef(null);
-    const sentenceRef = useRef(null); 
+    const sentenceRef = useRef(null);
+
+    const traits = [
+        { text: "Naturally Curious", icon: Search },
+        { text: "Self-Driven", icon: Target },
+        { text: "Problem Solver", icon: Lightbulb },
+        { text: "Always Learning", icon: BookOpen },
+        { text: "Collaborative", icon: Users },
+        { text: "Detail-Oriented", icon: Eye }
+    ];
 
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
@@ -63,7 +72,30 @@ export const AboutSection = () => {
             }
         );
 
-        // Cleanup, remove trigger from this section when the component unmounts
+        // Animate trait cards individually
+        gsap.fromTo(
+            ".trait-card",
+            {
+                scale: 0,
+                opacity: 0,
+                y: 20
+            },
+            {
+                scale: 1,
+                opacity: 1,
+                y: 0,
+                duration: 0.5,
+                ease: "back.out(1.7)",
+                stagger: 0.1,
+                scrollTrigger: {
+                    trigger: contentRef.current,
+                    start: "top 60%",
+                    toggleActions: "play none none reverse"
+                }
+            }
+        );
+
+        // Cleanup
         return () => {
             ScrollTrigger.getAll().forEach((t) => {
                 if (t.vars.trigger === sectionRef.current) {
@@ -75,7 +107,7 @@ export const AboutSection = () => {
 
     return (
         <section ref={sectionRef} id="about" className="py-24 px-4 relative">
-            <div className="container mx-auto max-w-5xl">
+            <div className="container mx-auto max-w-6xl">
                 <h2 ref={titleRef} className="text-3xl md:text-4xl font-bold mb-12 text-center opacity-0">
                     About <span className="text-primary">Me</span>
                 </h2>
@@ -84,7 +116,7 @@ export const AboutSection = () => {
                     ref={sentenceRef}
                     className={cn(
                     "text-2xl font-bold flex flex-col md:flex-row items-center justify-center gap-2",
-                    "text-muted-foreground mx-auto opacity-0 pb-6"
+                    "text-muted-foreground mx-auto opacity-0 pb-12"
                 )}> 
                     <div>
                         <span className={cn(
@@ -110,18 +142,37 @@ export const AboutSection = () => {
                     </div>
                 </div>
 
-                <div ref={contentRef} className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div ref={contentRef} className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
                     <div className="space-y-6">
-                        <h3 className="text-2xl font-semibold">
-                            Passionate Developer
-                        </h3>
+                        <div className="grid grid-cols-2 gap-4">
+                            {traits.map((trait, index) => {
+                                const Icon = trait.icon;
+                                return (
+                                    <div
+                                        key={index}
+                                        className="trait-card group relative p-4 bg-gradient-to-br from-background/50 to-background/30 
+                                                 backdrop-blur-sm border border-primary/10 hover:border-primary/30 
+                                                 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/10"
+                                    >
+                                        <div className="flex flex-col items-center text-center gap-2">
+                                            <div className="p-2 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors duration-300">
+                                                <Icon className="h-5 w-5 text-primary group-hover:scale-110 transition-transform duration-300" />
+                                            </div>
+                                            <span className="text-sm font-medium text-foreground/80 group-hover:text-primary transition-colors duration-300">
+                                                {trait.text}
+                                            </span>
+                                        </div>
+                                        
+                                        <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-primary/5 to-transparent 
+                                                      opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
+                                    </div>
+                                );
+                            })}
+                        </div>
 
-                        <p className="text-muted-foreground"> 
-                            Always learning new stuffs 
-                        </p>
-
-                        <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
-                            <a href="#contact" className="cosmic-button">
+                        {/* Action buttons */}
+                        <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                            <a href="#contact" className="cosmic-button flex-1 text-center">
                                 Get In Touch
                             </a>
 
@@ -130,7 +181,7 @@ export const AboutSection = () => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className={cn(
-                                    "px-6 py-2 rounded-full border border-primary text-primary hover:bg-primary/20",
+                                    "flex-1 px-6 py-2 rounded-full border border-primary text-primary hover:bg-primary/20 text-center",
                                     "transition-colors duration-300"
                                 )
                             }>
@@ -139,6 +190,7 @@ export const AboutSection = () => {
                         </div>
                     </div>
 
+                    {/* Right side - Skill cards */}
                     <div className="grid grid-cols-1 gap-6">
                         <div className="gradient-border p-6 card-hover">
                             <div className="flex items-start gap-4">
