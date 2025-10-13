@@ -17,7 +17,7 @@ export const ContactSection = () => {
         setIsSubmitting(true);
         setTimeout(() => {
             toast({
-                title: "Message Sent!",
+                title: "Message Sent! (Just Kidding)",
                 description: "Sorry, this button doesn't send emails just yet as I have yet to set up the email service. Please use the other links on my site to get in touch."
             });
             setIsSubmitting(false);

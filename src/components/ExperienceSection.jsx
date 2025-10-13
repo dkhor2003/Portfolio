@@ -12,7 +12,8 @@ const workExperiences = [
         name: "Iowa State University",
         pos: "Graduate Research Assistant",
         duration: "Jan 2025 - Present",
-        title: "Advancing adaptive discretization techniques in the domain of robotics to enhance real-world applicability and efficiency.",
+        title: "Advancing adaptive discretization and safety testing techniques in the domain of robotics to enhance real-world applicability and efficiency. \
+                Thesis title: Sampling-based Optimized Adaptive Discretization and its Applications in Robotics",
         icon: "/company-logos/isu-logo.jpg",
         animation: "cheer"
     },
