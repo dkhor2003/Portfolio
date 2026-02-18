@@ -9,12 +9,11 @@ import { ScrollTrigger } from "gsap/ScrollTrigger"
 const workExperiences = [
     {
         id: 1,
-        name: "Iowa State University",
-        pos: "Graduate Research Assistant",
-        duration: "Jan 2025 - Present",
-        title: "Advancing adaptive discretization and safety testing techniques in the domain of robotics to enhance real-world applicability and efficiency. \
-                Thesis title: Sampling-based Optimized Adaptive Discretization and its Applications in Robotics",
-        icon: "/company-logos/isu-logo.jpg",
+        name: "Musco Lighting",
+        pos: "Software Developer",
+        duration: "Feb 2026 - Present",
+        title: "Part of the Emerging Tech team building cutting edge technologies.",
+        icon: "/company-logos/musco-logo.jpeg",
         animation: "cheer"
     },
     {
@@ -31,10 +30,11 @@ const workExperiences = [
     {
         id: 3,
         name: "Iowa State University",
-        pos: "Graduate Teaching Assistant",
-        duration: "Aug 2023 - Dec 2024",
-        title: "Teaching Assistant for Python, Algorithms, and Machine Learning courses. Awarded Teaching Excellence Award in Fall 2024.",
-        icon: "/company-logos/isu-logo.jpg",
+        pos: "Graduate Research/Teaching Assistant",
+        duration: "Aug 2023 - Dec 2025",
+        title: "Advancing adaptive discretization and safety testing techniques in the domain of robotics to enhance real-world applicability and efficiency. \
+                Thesis title: Sampling-based Optimized Adaptive Discretization and its Applications in Robotics. Also a teaching Assistant for Python, Algorithms, and Machine Learning courses. Awarded Teaching Excellence Award in Fall 2024.",
+        icon: "/company-logos/isu-logo.png",
         animation: "shake"
     },
 ]

@@ -17,7 +17,8 @@ const logoMapping = {
     "Three": "/logos/three.svg",
     "Java": "/logos/java.svg",
     "Python": "/logos/python.svg",
-    "PyTorch": "/logos/pytorch.svg"
+    "PyTorch": "/logos/pytorch.svg",
+    "OpenCV": "/logos/opencv.svg"
 }
 
 const projects = [
@@ -32,12 +33,12 @@ const projects = [
     },
     {
         id: 2,
-        title: "My Portfolio",
-        description: `The place where I showcase myself, and you are currently looking at it. `,
-        image: "/projects/portfolio.png",
-        tags: ["JavaScript", "React", "Tailwind", "Three"],
-        demoUrl: "https://dylan-khor-portfolio.vercel.app/",
-        githubUrl: "https://github.com/dkhor2003/Portfolio"
+        title: "Sampling-based Optimized Adaptive Discretization and its Applications in Robotics",
+        description: `A novel approach towards addressing the curse of dimensionality problem in robotics.`,
+        image: "/projects/oad.png",
+        tags: ["Python", "OpenCV"],
+        demoUrl: "#",
+        githubUrl: "https://github.com/ISUSAIL/Adaptive_Discretization"
     },
     {
         id: 3,
@@ -56,6 +57,15 @@ const projects = [
         tags: ["Python", "PyTorch"],
         demoUrl: "#",
         githubUrl: "https://github.com/dkhor2003/Progressive-Resizing-With-Randomized-Progressive-Deblurring"
+    },
+    {
+        id: 5,
+        title: "My Portfolio",
+        description: `The place where I showcase myself, and you are currently looking at it. `,
+        image: "/projects/portfolio.png",
+        tags: ["JavaScript", "React", "Tailwind", "Three"],
+        demoUrl: "https://dylan-khor-portfolio.vercel.app/",
+        githubUrl: "https://github.com/dkhor2003/Portfolio"
     },
 ];
 
