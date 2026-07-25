@@ -117,14 +117,15 @@ export const ExperienceSection = () => {
                 </div>
 
                 <div className="work-content">
-                    <div className="sm:py-10 py-5 sm:px-5 px-2.5">
+                    {/* onPointerLeave sits on the list so sliding between two cards
+                        never dips back through "idle" on the way across */}
+                    <div className="sm:py-10 py-5 sm:px-5 px-2.5" onPointerLeave={() => setAnimationName("idle")}>
                         {workExperiences.map(({id, name, pos, icon, duration, title, animation}) => (
-                            <div 
-                                key={id} 
-                                className="work-content_container group" 
+                            <div
+                                key={id}
+                                className="work-content_container group"
                                 onClick={() => setAnimationName(animation.toLowerCase())}
-                                onPointerOver={() => setAnimationName(animation.toLowerCase())}
-                                onPointerOut={() => setAnimationName("idle")}
+                                onPointerEnter={() => setAnimationName(animation.toLowerCase())}
                             >
                                 <div className="flex flex-col h-full justify-start items-center py-2">
                                     <div className="work-content_logo">
